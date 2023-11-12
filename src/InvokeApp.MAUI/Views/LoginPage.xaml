@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InvokeApp.MAUI.Views.LoginPage"
+             Shell.NavBarIsVisible="False"  
+             Shell.TabBarIsVisible="False"
+             xmlns:viewmodels="clr-namespace:InvokeApp.MAUI.ViewModels"
+             x:DataType="viewmodels:LoginViewModel"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui">
+
+    <ContentPage.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="{StaticResource White}" StatusBarStyle="DarkContent"/>
+    </ContentPage.Behaviors>
+
+    <Grid
+        Padding="18,0,18,0"
+        BackgroundColor="{StaticResource White}">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <Grid 
+            Grid.Row="0">
+            <ImageButton
+                Source="yellow_arrow_back.png"
+                Style="{StaticResource imageButtonBack}"
+                Command="{Binding MainAsyncCommand}"/>
+            <Label 
+                Text="Войти" 
+                Style="{StaticResource labelTitel}"/>
+        </Grid>
+
+        <Grid
+            Grid.Row="1">
+            <Label 
+                Text="Invoke"
+                Style="{StaticResource labelInvoke}"/>
+        </Grid>
+
+        <Grid
+            Grid.Row="2">
+            <VerticalStackLayout
+                Padding="0,40,0,0"
+                Spacing="10">
+                <StackLayout>
+                    <Label
+                        Text="Почта"
+                        Style="{StaticResource labelEntry}"/>
+                    <Border
+                        Style="{StaticResource borderEntry}">
+                        <Entry
+                            Text="{Binding Email}"
+                            Style="{StaticResource entryPrimary}"
+                            Placeholder="aboba@gmail.com"/>
+                    </Border>
+                </StackLayout>
+                <StackLayout>
+                    <Label
+                        Text="Пароль"
+                        Style="{StaticResource labelEntry}"/>
+                    <Border
+                        Style="{StaticResource borderEntry}">
+                        <Grid>
+                            <Entry
+                                Text="{Binding Password}"
+                                Style="{StaticResource entryPassword}"
+                                IsPassword="{Binding IsHidePassword}"/>
+                            <Button
+                                Text="{Binding HideText}"
+                                Style="{StaticResource buttonHidePassword}"
+                                Command="{Binding HidePasswordCommand}"/>
+                        </Grid>
+                    </Border>
+                </StackLayout>
+                <Label
+                    Text="Нет аккаунта? Зарегестрироваться"
+                    Style="{StaticResource labelLink}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer 
+                            Command="{Binding RegisterAsyncCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </VerticalStackLayout>
+        </Grid>
+
+        <Grid
+            Grid.Row="3">
+            <Button
+                Text="Войти"
+                Style="{StaticResource buttonTertiary}"
+                Command="{Binding HomeAsyncCommand}"/>
+        </Grid>
+    </Grid>
+</ContentPage>

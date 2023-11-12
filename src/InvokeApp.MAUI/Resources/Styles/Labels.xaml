@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InvokeApp.MAUI.Resources.Styles.Labels">
+
+    <Style x:Key="baseLabel" TargetType="Label">
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+    </Style>
+    
+    <Style x:Key="labelTitel" TargetType="Label" BasedOn="{StaticResource baseLabel}">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="TextColor" Value="{StaticResource Black}"/>
+        <Setter Property="FontFamily" Value="InterBold"/>
+    </Style>
+
+    <Style x:Key="labelInvoke" TargetType="Label" BasedOn="{StaticResource baseLabel}">
+        <Setter Property="FontSize" Value="42"/>
+        <Setter Property="TextColor" Value="{StaticResource Primary}"/>
+        <Setter Property="FontFamily" Value="InterBlack"/>
+    </Style>
+
+    <Style x:Key="labelVersion" TargetType="Label" BasedOn="{StaticResource baseLabel}">
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="TextColor" Value="{StaticResource Gray45}"/>
+        <Setter Property="FontFamily" Value="InterExtraLight"/>
+    </Style>
+
+    <Style x:Key="labelLink" TargetType="Label">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="TextColor" Value="{StaticResource Primary}"/>
+        <Setter Property="FontFamily" Value="InterMedium"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+    </Style>
+
+    <Style x:Key="labelEntry" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource Black}"/>
+        <Setter Property="FontFamily" Value="InterSemiBold"/>
+    </Style>
+
+</ResourceDictionary>

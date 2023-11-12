@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InvokeApp.MAUI.Views.MainPage"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="False"
+             xmlns:viewmodels="clr-namespace:InvokeApp.MAUI.ViewModels"
+             x:DataType="viewmodels:MainViewModel"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui">
+    
+    <ContentPage.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="{StaticResource White}" StatusBarStyle="DarkContent"/>
+    </ContentPage.Behaviors>
+
+    <Grid
+        BackgroundColor="{StaticResource White}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Grid 
+            Grid.Row="0">
+            <Label 
+                Text="Войти / Регистрация"
+                Style="{StaticResource labelTitel}"/>
+        </Grid>
+
+        <Grid
+            Grid.Row="1">
+            <Label 
+                Text="Invoke"
+                Style="{StaticResource labelInvoke}"/>
+        </Grid>
+
+        <Grid
+            Grid.Row="2">
+            <VerticalStackLayout
+                Padding="40"
+                Spacing="10">
+                <Button
+                    Text="Войти"
+                    Style="{StaticResource buttonPrimary}"
+                    Command="{Binding LoginAsyncCommand}"/>
+                <Button
+                    Text="Регистрация"
+                    Style="{StaticResource buttonSecondary}"
+                    Command="{Binding RegisterAsyncCommand}"/>
+            </VerticalStackLayout>
+        </Grid>
+
+        <Grid
+            Grid.Row="3">
+            <Label 
+                Text="Версия 1.0"
+                Style="{StaticResource labelVersion}"/>
+        </Grid>
+    </Grid>
+    
+</ContentPage>

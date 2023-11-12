@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InvokeApp.MAUI.Resources.Styles.Borders">
+
+    <Style x:Key="borderEntry" TargetType="Border">
+        <Setter Property="Stroke" Value="{StaticResource Black}"/>
+        <Setter Property="Background" Value="{StaticResource White}"/>
+        <Setter Property="StrokeShape" Value="RoundRectangle 10,10,10,10"/>
+        <Setter Property="StrokeThickness" Value="1"/>
+    </Style>
+
+</ResourceDictionary>

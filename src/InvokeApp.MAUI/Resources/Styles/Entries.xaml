@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InvokeApp.MAUI.Resources.Styles.Entries">
+
+    <Style x:Key="baseEntry" TargetType="Entry">
+        <Setter Property="Margin" Value="10,0,0,0"/>
+        <Setter Property="TextColor" Value="{StaticResource Black}"/>
+        <Setter Property="FontFamily" Value="InterSemiBold"/>
+    </Style>
+
+    <Style x:Key="entryPrimary" TargetType="Entry" BasedOn="{StaticResource baseEntry}">
+        <Setter Property="PlaceholderColor" Value="{StaticResource Silver}"/>
+    </Style>
+
+    <Style x:Key="entryPassword" TargetType="Entry" BasedOn="{StaticResource baseEntry}">
+        <Setter Property="WidthRequest" Value="250"/>
+        <Setter Property="HorizontalOptions" Value="Start"/>
+    </Style>
+
+</ResourceDictionary>

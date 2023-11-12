@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InvokeApp.MAUI.Resources.Styles.RadioButtons">
+
+    <Style x:Key="radioButtonAll" TargetType="RadioButton">
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        
+        <Setter Property="ControlTemplate">
+            <Setter.Value >
+                <ControlTemplate>
+                    <Grid RowDefinitions="40, 1">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroupList>
+                                <VisualStateGroup x:Name="CheckedStates">
+                                    
+                                    <VisualState x:Name="Checked">
+                                        <VisualState.Setters>
+                                            <Setter
+                                                TargetName="TextLabel"
+                                                Property="Label.TextColor"
+                                                Value="{StaticResource Primary}"/>
+                                            <Setter
+                                                TargetName="Indicator"
+                                                Property="BoxView.Color"
+                                                Value="{StaticResource Primary}"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Unchecked">
+                                        <VisualState.Setters>
+                                            <Setter
+                                                TargetName="TextLabel"
+                                                Property="Label.TextColor"
+                                                Value="{StaticResource Silver}"/>
+                                            <Setter
+                                                TargetName="Indicator"
+                                                Property="BoxView.Color"
+                                                Value="{StaticResource Silver}"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    
+                                </VisualStateGroup>
+                            </VisualStateGroupList>
+                        </VisualStateManager.VisualStateGroups>
+                        <Label x:Name="TextLabel" Text="{TemplateBinding Content}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="16" FontFamily="InterMedium"/>
+                        <BoxView x:Name="Indicator" Grid.Row="1" Color="{StaticResource Silver}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style x:Key="radioButtonPickUp" TargetType="RadioButton">
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+
+        <Setter Property="ControlTemplate">
+            <Setter.Value >
+                <ControlTemplate>
+                    <Grid RowDefinitions="40, 1">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroupList>
+                                <VisualStateGroup x:Name="CheckedStates">
+
+                                    <VisualState x:Name="Checked">
+                                        <VisualState.Setters>
+                                            <Setter
+                                                TargetName="TextLabel"
+                                                Property="Label.TextColor"
+                                                Value="{StaticResource Primary}"/>
+                                            <Setter
+                                                TargetName="PickUpImage"
+                                                Property="Image.Source"
+                                                Value="location_gold.png"/>
+                                            <Setter
+                                                TargetName="Indicator"
+                                                Property="BoxView.Color"
+                                                Value="{StaticResource Primary}"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Unchecked">
+                                        <VisualState.Setters>
+                                            <Setter
+                                                TargetName="TextLabel"
+                                                Property="Label.TextColor"
+                                                Value="{StaticResource Silver}"/>
+                                            <Setter
+                                                TargetName="PickUpImage"
+                                                Property="Image.Source"
+                                                Value="location_silver.png"/>
+                                            <Setter
+                                                TargetName="Indicator"
+                                                Property="BoxView.Color"
+                                                Value="{StaticResource Silver}"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                </VisualStateGroup>
+                            </VisualStateGroupList>
+                        </VisualStateManager.VisualStateGroups>
+                        <HorizontalStackLayout
+                            HorizontalOptions="Center">
+                            <Image x:Name="PickUpImage" HeightRequest="20" WidthRequest="20" Source="location_silver.png"/>
+                            <Label x:Name="TextLabel" Text="{TemplateBinding Content}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="16" FontFamily="InterMedium"/>
+                        </HorizontalStackLayout>
+                        <BoxView x:Name="Indicator" Grid.Row="1" Color="{StaticResource Silver}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

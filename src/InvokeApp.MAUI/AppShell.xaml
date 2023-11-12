@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="InvokeApp.MAUI.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:view="clr-namespace:InvokeApp.MAUI.Views"
+    Shell.FlyoutBehavior="Disabled">
+
+    <ShellItem Route="MainPage">
+        <ShellContent ContentTemplate="{DataTemplate view:MainPage}"/>
+    </ShellItem>
+
+    <TabBar
+        Route="Main">
+
+        <ShellContent 
+            Icon="home.svg"
+            ContentTemplate="{DataTemplate view:HomePage}"/>
+        <ShellContent 
+            Icon="favourite.svg"
+            ContentTemplate="{DataTemplate view:FavouritePage}"/>
+        <ShellContent 
+            Icon="photo.svg"
+            ContentTemplate="{DataTemplate view:PostPage}"/>
+        <ShellContent 
+            Icon="tag.svg"
+            ContentTemplate="{DataTemplate view:DealsPage}"/>
+        <ShellContent
+            Icon="profile.svg"
+            ContentTemplate="{DataTemplate view:ProfilePage}"/>
+        
+    </TabBar>
+</Shell>
