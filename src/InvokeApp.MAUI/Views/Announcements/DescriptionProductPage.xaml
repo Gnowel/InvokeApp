@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:converter="clr-namespace:InvokeApp.MAUI.Converters"
+             xmlns:viewmodels="clr-namespace:InvokeApp.MAUI.ViewModels.Announcements"  
+             x:Class="InvokeApp.MAUI.Views.Announcements.DescriptionProductPage"
+             x:DataType="viewmodels:DescriptionProductViewModel"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="False">
+    
+    <Grid
+        RowDefinitions="100, *"
+        BackgroundColor="{StaticResource White}">
+
+        <Grid.Resources>
+            <converter:IntToConditionStringConverter x:Key="intToString" />
+        </Grid.Resources>
+
+        <Grid 
+            Grid.Row="0"
+            ColumnDefinitions="20,*"
+            BackgroundColor="{StaticResource Primary}">
+            <ImageButton 
+                Style="{StaticResource imageButtonBackShort}"
+                Margin="10,0,0,10"
+                Command="{Binding BackAsyncCommand}"
+                Grid.Column="0"
+                WidthRequest="22"
+                HeightRequest="22"
+                VerticalOptions="End">
+                <ImageButton.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="{StaticResource White}"/>
+                </ImageButton.Behaviors>
+            </ImageButton>
+            <Label
+                Grid.Column="1"
+                Text="Опишите товар"
+                Style="{StaticResource labelTitelPage}"/>
+        </Grid>
+
+        <Grid 
+            Grid.Row="1"
+            Padding="0,30,0,0"
+            RowDefinitions="1, 90, 1, *, 1,160">
+
+            <BoxView
+                Grid.Row="0"
+                HeightRequest="1"
+                BackgroundColor="{StaticResource Silver}"/>
+
+            <Grid
+                Padding="10"
+                Grid.Row="1"
+                RowDefinitions="30, 40">
+
+                <Grid 
+                    Grid.Row="0"
+                    ColumnDefinitions="*, *">
+
+                    <Label
+                        Text="{Binding SelectedCategory}"
+                        Style="{StaticResource labelProductAdd}"
+                        Grid.Column="0"/>
+
+                    <HorizontalStackLayout 
+                        Spacing="7"
+                        HorizontalOptions="End"
+                        Grid.Column="1">
+                        <Label 
+                            Text="Больше"
+                            FontSize="16"
+                            TextColor="{StaticResource Primary}"
+                            FontFamily="InterMedium"/>
+                        <Image
+                            Source="arrow_right_short.svg"
+                            WidthRequest="15"
+                            HeightRequest="15">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="{StaticResource VeryLightGray}"/>
+                            </Image.Behaviors>
+                        </Image>
+                    </HorizontalStackLayout>
+                </Grid>
+
+                <Grid 
+                    VerticalOptions="End"
+                    Grid.Row="1">
+
+                    <CollectionView
+                        ItemsLayout="HorizontalList"
+                        ItemsSource="{Binding Category}"
+                        SelectedItem="{Binding SelectedCategory}"
+                        SelectionMode="Single"
+                        BackgroundColor="{StaticResource White}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid
+                                    Padding="0,0,5,0"
+                                    WidthRequest="180">
+
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroupList>
+                                            <VisualStateGroup x:Name="CommonStates">
+                                                <VisualState x:Name="Normal">
+                                                    <VisualState.Setters>
+                                                        <Setter 
+                                                            Property="Background" 
+                                                            Value="{StaticResource White}"/>
+                                                        <Setter
+                                                            TargetName="txtCategory"
+                                                            Property="Label.TextColor"
+                                                            Value="{StaticResource Primary}"/>
+                                                        <Setter
+                                                            TargetName="borderCategory"
+                                                            Property="Border.Background"
+                                                            Value="{StaticResource White}"/>
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                                <VisualState x:Name="Selected">
+                                                    <VisualState.Setters>
+                                                        <Setter 
+                                                            Property="Background" 
+                                                            Value="{StaticResource White}"/>
+                                                        <Setter
+                                                            TargetName="txtCategory"
+                                                            Property="Label.TextColor"
+                                                            Value="{StaticResource White}"/>
+                                                        <Setter
+                                                            TargetName="borderCategory"
+                                                            Property="Border.Background"
+                                                            Value="{StaticResource Primary}"/>
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateGroupList>
+                                    </VisualStateManager.VisualStateGroups>
+
+                                    <Border
+                                        x:Name="borderCategory"
+                                        Background="Transparent"
+                                        Stroke="{StaticResource Primary}"
+                                        StrokeShape="RoundRectangle 10">
+                                        <Label 
+                                            x:Name="txtCategory"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Center"
+                                            TextColor="{StaticResource Primary}"
+                                            Text="{Binding .}"/>
+                                    </Border>
+
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Grid>
+            
+            <BoxView
+                Grid.Row="2"
+                HeightRequest="1"
+                BackgroundColor="{StaticResource Silver}"/>
+
+            <Grid 
+                Padding="10"
+                Grid.Row="3"
+                RowDefinitions="50, 40, *">
+
+                <Grid 
+                    Grid.Row="0"
+                    ColumnDefinitions="*, *">
+                    <Label
+                        Text="Состояние"
+                        Style="{StaticResource labelProductAdd}"
+                        Grid.Column="0"/>
+                    <Label
+                        Text="{Binding SliderValue, Converter={StaticResource intToString}}"
+                        TextColor="{StaticResource Black}"
+                        FontSize="15"
+                        FontFamily="InterSemiBold"
+                        Grid.Column="1"/>
+                </Grid>
+
+                <Slider
+                    Value="{Binding SliderValue}"
+                    VerticalOptions="Start"
+                    Minimum="0"
+                    Maximum="5"
+                    Grid.Row="1"
+                    ThumbColor="{StaticResource VeryLightGray}"
+                    MinimumTrackColor="{StaticResource Primary}"
+                    MaximumTrackColor="{StaticResource Silver}"/>
+
+                <VerticalStackLayout 
+                    Grid.Row="2"
+                    VerticalOptions="Start">
+                    <Label 
+                        Text="Описание"
+                        Style="{StaticResource labelProductAdd}"/>
+                    <Border
+                        Background="Transparent"
+                        Stroke="{StaticResource Silver}"
+                        StrokeShape="RoundRectangle 10">
+                        <Editor 
+                            HeightRequest="200"
+                            TextColor="Black"/>
+                    </Border>
+                </VerticalStackLayout>
+            </Grid>
+
+
+            <BoxView
+            Grid.Row="4"
+            HeightRequest="1"
+            BackgroundColor="{StaticResource Silver}"/>
+
+            <Grid 
+                Grid.Row="5"
+                RowDefinitions="*,*">
+
+                <Button
+                    Text="Дальше"
+                    Style="{StaticResource buttonAnnouncementProduct}"
+                    Command="{Binding SpecifyPriceAsyncCommand}"
+                    Grid.Row="0"/>
+
+                <Grid 
+                    Padding="20,0,20,0"
+                    Grid.Row="1">
+                    <HorizontalStackLayout Spacing="10">
+                        <VerticalStackLayout>
+                            <Border Style="{StaticResource borderlNextProgress}">
+                                <Image Style="{StaticResource imageProductDone}">
+                                    <Image.Behaviors>
+                                        <toolkit:IconTintColorBehavior TintColor="{StaticResource White}"/>
+                                    </Image.Behaviors>
+                                </Image>
+                            </Border>
+                            <Label 
+                                Text="Фотография"
+                                Style="{StaticResource labelNextProgress}"/>
+                        </VerticalStackLayout>
+                        <HorizontalStackLayout 
+                            VerticalOptions="Center"
+                            Margin="0,0,0,30">
+                            <Border Style="{StaticResource borderlSmallCircle}"/>
+                            <Border Style="{StaticResource borderlSmallCircle}"/>
+                            <Border Style="{StaticResource borderlSmallCircle}"/>
+                        </HorizontalStackLayout>
+
+                        <VerticalStackLayout>
+                            <Border Style="{StaticResource borderlCurrentProgress}">
+                                <Label
+                                    Text="2"
+                                    Style="{StaticResource labelCurrentProgressInCircle}"/>
+                            </Border>
+                            <Label 
+                                Text="Детали"
+                                Style="{StaticResource labelCurrentProgress}"/>
+                        </VerticalStackLayout>
+                        <HorizontalStackLayout 
+                            VerticalOptions="Center"
+                            Margin="0,0,0,30">
+                            <Border Style="{StaticResource borderlSmallCircle}"/>
+                            <Border Style="{StaticResource borderlSmallCircle}"/>
+                            <Border Style="{StaticResource borderlSmallCircle}"/>
+                        </HorizontalStackLayout>
+
+                        <VerticalStackLayout>
+                            <Border Style="{StaticResource borderlNextProgress}">
+                                <Label
+                                    Text="3"
+                                    Style="{StaticResource labelCurrentProgressInCircle}"/>
+                            </Border>
+                            <Label 
+                                Text="Цена"
+                                Style="{StaticResource labelNextProgress}"/>
+                        </VerticalStackLayout>
+                        <HorizontalStackLayout 
+                            VerticalOptions="Center"
+                            Margin="0,0,0,30">
+                            <Border Style="{StaticResource borderlSmallCircle}"/>
+                            <Border Style="{StaticResource borderlSmallCircle}"/>
+                            <Border Style="{StaticResource borderlSmallCircle}"/>
+                        </HorizontalStackLayout>
+
+                        <VerticalStackLayout>
+                            <Border Style="{StaticResource borderlNextProgress}">
+                                <Label
+                                    Text="4"
+                                    Style="{StaticResource labelCurrentProgressInCircle}"/>
+                            </Border>
+                            <Label 
+                                Text="Локация"
+                                Style="{StaticResource labelNextProgress}"/>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Grid>
+            </Grid>
+        </Grid>
+        
+    </Grid>
+    
+</ContentPage>

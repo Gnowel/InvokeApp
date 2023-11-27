@@ -7,11 +7,21 @@
         <Setter Property="VerticalOptions" Value="Center"/>
         <Setter Property="HorizontalOptions" Value="Center"/>
     </Style>
-    
+
+
     <Style x:Key="labelTitel" TargetType="Label" BasedOn="{StaticResource baseLabel}">
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="TextColor" Value="{StaticResource Black}"/>
         <Setter Property="FontFamily" Value="InterBold"/>
+    </Style>
+    
+    <Style x:Key="labelTitelPage" TargetType="Label" BasedOn="{StaticResource baseLabel}">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="TextColor" Value="{StaticResource White}"/>
+        <Setter Property="FontFamily" Value="InterBold"/>
+        <Setter Property="HeightRequest" Value="40"/>
+        <Setter Property="VerticalOptions" Value="End"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
     </Style>
 
     <Style x:Key="labelInvoke" TargetType="Label" BasedOn="{StaticResource baseLabel}">
@@ -36,6 +46,47 @@
     <Style x:Key="labelEntry" TargetType="Label">
         <Setter Property="TextColor" Value="{StaticResource Black}"/>
         <Setter Property="FontFamily" Value="InterSemiBold"/>
+    </Style>
+
+    <Style x:Key="labelSorting" TargetType="Label">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="TextColor" Value="{StaticResource Silver}"/>
+        <Setter Property="FontFamily" Value="InterMedium"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
+
+    <Style x:Key="labelProductAdd" TargetType="Label">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="TextColor" Value="{StaticResource Gray45}"/>
+        <Setter Property="FontFamily" Value="InterMedium"/>
+    </Style>
+
+    <Style x:Key="labelCurrentProgressInCircle" TargetType="Label">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="TextColor" Value="{StaticResource White}"/>
+        <Setter Property="FontFamily" Value="InterSemiBold"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+    </Style>
+    <Style x:Key="labelCurrentProgress" TargetType="Label">
+        <Setter Property="FontSize" Value="10"/>
+        <Setter Property="TextColor" Value="{StaticResource Primary}"/>
+        <Setter Property="FontFamily" Value="InterSemiBold"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+    </Style>
+
+    <Style x:Key="labelNextProgressInCircle" TargetType="Label">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="TextColor" Value="{StaticResource VeryLightGray}"/>
+        <Setter Property="FontFamily" Value="InterSemiBold"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+    </Style>
+    <Style x:Key="labelNextProgress" TargetType="Label">
+        <Setter Property="FontSize" Value="10"/>
+        <Setter Property="TextColor" Value="{StaticResource VeryLightGray}"/>
+        <Setter Property="FontFamily" Value="InterSemiBold"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
     </Style>
 
 </ResourceDictionary>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:viewmodels="clr-namespace:InvokeApp.MAUI.ViewModels"
+             x:Class="InvokeApp.MAUI.Views.ProductDetailPage"
+             x:DataType="viewmodels:ProductDetailViewModel"  
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="True">
+
+    <ScrollView>
+
+        <Grid
+            RowDefinitions="400, 70, 80, *, *"
+            BackgroundColor="{StaticResource White}">
+
+            <Grid Grid.Row="0">
+                <Image
+                    Aspect="AspectFill"
+                    Source="{Binding ProductDetail.ImageUrl}"/>
+
+                <Grid
+                    ColumnDefinitions="*, *"
+                    Margin="0, 0, 0, 250">
+
+                    <ImageButton
+                        Grid.Column="0"
+                        Style="{StaticResource imageButtonBackShort}"
+                        WidthRequest="40"
+                        Command="{Binding BackAsyncCommand}"
+                        HeightRequest="40">
+                        <ImageButton.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="{StaticResource White}"/>
+                        </ImageButton.Behaviors>
+                    </ImageButton>
+                    <ImageButton 
+                        Source="{Binding FavoriteImage}"
+                        Command="{Binding FavoriteCommand}"
+                        Grid.Column="1"
+                        WidthRequest="40"
+                        HeightRequest="40"
+                        HorizontalOptions="End"/>
+                </Grid>
+            </Grid>
+
+            <Grid 
+                Grid.Row="1"
+                RowDefinitions="*, 5">
+                <StackLayout
+                    Grid.Row="0"
+                    Padding="5,0,5,0"
+                    VerticalOptions="Center">
+                    <Label 
+                        Text="{Binding ProductDetail.Name}"
+                        FontSize="16"
+                        TextColor="{StaticResource NightRider}"
+                        FontFamily="InterBold"/>
+                    <Label 
+                        Text="{Binding ProductDetail.Price , StringFormat='{0:#,##,# ₽}'}"
+                        FontSize="16"
+                        TextColor="{StaticResource NightRider}"
+                        FontFamily="InterRegular"/>
+                </StackLayout>
+                <BoxView 
+                    Grid.Row="1"
+                    HeightRequest="5"
+                    BackgroundColor="{StaticResource Silver}"/>
+            </Grid>
+
+            <Grid 
+                Grid.Row="2"
+                RowDefinitions="*,5">
+                <Grid
+                    Grid.Row="0"
+                    Padding="5,0,0,0"
+                    VerticalOptions="Center">
+                    <HorizontalStackLayout
+                        HorizontalOptions="Start">
+                        <toolkit:AvatarView 
+                            CornerRadius="30"
+                            ImageSource="{Binding ProductDetail.SellerImageUrl}"
+                            WidthRequest="60" 
+                            HeightRequest="60"/>
+                        <Label
+                            Text="{Binding ProductDetail.SellerName}"
+                            Padding="10,0,0,0"
+                            FontSize="16"
+                            TextColor="{StaticResource Black}"
+                            FontFamily="InterBold"/>
+                    </HorizontalStackLayout>
+                    <ImageButton 
+                        Source="arrow_right_short.svg"
+                        WidthRequest="25"
+                        HeightRequest="25"
+                        HorizontalOptions="End">
+                        <ImageButton.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="{StaticResource Silver}"/>
+                        </ImageButton.Behaviors>
+                    </ImageButton>
+                </Grid>
+                <BoxView 
+                    Grid.Row="1"
+                    VerticalOptions="End"
+                    HeightRequest="5"
+                    BackgroundColor="{StaticResource Silver}"/>
+            </Grid>
+
+            <VerticalStackLayout 
+                Grid.Row="3"
+                Spacing="5">
+                <Label 
+                    Text="{Binding ProductInformation}" 
+                    FontSize="16"
+                    FontFamily="InterBold"
+                    TextColor="{StaticResource Black}"/>
+                <VerticalStackLayout
+                    Spacing="5"
+                    Padding="5">
+                    <Label 
+                        Text="{Binding ProductDetail.Description}"
+                        MaxLines="{Binding MaxLines}"
+                        TextColor="{StaticResource Silver}"/>
+                    <Label
+                        Text="{Binding ReadMoreText}"
+                        TextColor="{StaticResource Primary}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ReadMoreCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </VerticalStackLayout>
+                <BoxView 
+                    Grid.Row="1"
+                    VerticalOptions="End"
+                    HeightRequest="5"
+                    BackgroundColor="{StaticResource Silver}"/>
+            </VerticalStackLayout>
+
+            <Grid 
+                Padding="0,10,0,10"
+                Grid.Row="4">
+                <Button
+                    Text="Купить"
+                    Style="{StaticResource buttonPrimary}"/>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

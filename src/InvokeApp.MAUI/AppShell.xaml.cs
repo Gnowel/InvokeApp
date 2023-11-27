@@ -1,5 +1,6 @@
 ﻿using InvokeApp.MAUI.Services.Navigation;
 using InvokeApp.MAUI.Views;
+using InvokeApp.MAUI.Views.Announcements;
 
 namespace InvokeApp.MAUI;
 
@@ -29,5 +30,9 @@ public partial class AppShell : Shell
         Routing.RegisterRoute("Login", typeof(LoginPage));
         Routing.RegisterRoute("Register", typeof(RegisterPage));
         Routing.RegisterRoute("Home", typeof(HomePage));
+        Routing.RegisterRoute("ProductDetail", typeof(ProductDetailPage));
+        Routing.RegisterRoute("DescriptionProduct", typeof(DescriptionProductPage));
+        Routing.RegisterRoute("SpecifyPrice", typeof(SpecifyPricePage));
+        Routing.RegisterRoute("SelectLocation", typeof(SelectLocationPage));
     }
 }

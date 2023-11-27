@@ -1,11 +1,9 @@
-﻿
-using CommunityToolkit.Maui.Core;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using InvokeApp.MAUI.Services.Navigation;
 
 namespace InvokeApp.MAUI.ViewModels.Base
 {
-    public class BaseViewModel : ObservableObject
+    public abstract class BaseViewModel : ObservableObject
     {
         public INavigationService NavigationService { get; }
 

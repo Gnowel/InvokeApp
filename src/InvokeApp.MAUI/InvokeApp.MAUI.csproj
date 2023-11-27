@@ -49,12 +49,38 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\done.svg" />
 	  <None Remove="Resources\Images\yellow-arrow-back.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Maui" Version="6.1.0" />
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\InvokeApp.Shared\InvokeApp.Shared.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\Announcements\PlaceProductPage.xaml.cs">
+	    <DependentUpon>PlaceProductPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Announcements\DescriptionProductPage.xaml.cs">
+	    <DependentUpon>DescriptionProductPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\FavoritePage.xaml.cs">
+	    <DependentUpon>FavoritePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Popups\PricePopup.xaml.cs">
+	    <DependentUpon>PricePopup.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Popups\SortingPopup.xaml.cs">
+	    <DependentUpon>SortingPopup.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\ProductDetailPage.xaml.cs">
+	    <DependentUpon>ProductDetailPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -70,6 +96,9 @@
 	  <MauiXaml Update="Resources\Styles\ImageButtons.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\Images.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\Labels.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -79,10 +108,19 @@
 	  <MauiXaml Update="Resources\Styles\ShellContents.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Announcements\DescriptionProductPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Announcements\SelectLocationPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Announcements\SpecifyPricePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\DealsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\FavouritePage.xaml">
+	  <MauiXaml Update="Views\FavoritePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\HomePage.xaml">
@@ -91,10 +129,16 @@
 	  <MauiXaml Update="Views\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Popups\FilterPopup.xaml">
+	  <MauiXaml Update="Views\Popups\PricePopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\PostPage.xaml">
+	  <MauiXaml Update="Views\Popups\SortingPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Announcements\PlaceProductPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ProductDetailPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ProfilePage.xaml">

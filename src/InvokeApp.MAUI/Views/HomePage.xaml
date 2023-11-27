@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="InvokeApp.MAUI.Views.HomePage"
-             Shell.NavBarIsVisible="False"
-             Shell.TabBarIsVisible="True"
+             xmlns:dto="clr-namespace:InvokeApp.Shared.DTOs.Products;assembly=InvokeApp.Shared"
              xmlns:viewmodels="clr-namespace:InvokeApp.MAUI.ViewModels"
+             xmlns:converter="clr-namespace:InvokeApp.MAUI.Converters"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="InvokeApp.MAUI.Views.HomePage"
              x:DataType="viewmodels:HomeViewModel"
-             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
-    
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="True">
+
+    <ContentPage.Resources>
+        <converter:SortingEnumToStringConverters x:Key="sortingEnumToString" />
+    </ContentPage.Resources>
+
     <ContentPage.Behaviors>
-        <mct:StatusBarBehavior StatusBarColor="{StaticResource Primary}" StatusBarStyle="DarkContent"/>
+        <toolkit:StatusBarBehavior StatusBarColor="{StaticResource Primary}" StatusBarStyle="DarkContent"/>
     </ContentPage.Behaviors>
 
-    <Grid
-        RowDefinitions="100, *">
+    <Grid RowDefinitions="100, *">
 
         <HorizontalStackLayout
             Padding="8,0,8,0"
@@ -34,14 +38,22 @@
                     FontFamily="InterMedium"
                     BackgroundColor="{StaticResource GoldenGlow}"/>
             </Border>
-            
+
             <ImageButton
-                Source="dashboard_layout.png"
-                Style="{StaticResource imageButtonFilter}"/>
-            
+                Source="category.svg"
+                Style="{StaticResource imageButtonFilter}">
+                <ImageButton.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="{StaticResource White}"/>
+                </ImageButton.Behaviors>
+            </ImageButton>
+
             <ImageButton
-                Source="location_white.png"
-                Style="{StaticResource imageButtonFilter}"/>
+                Source="location.svg"
+                Style="{StaticResource imageButtonFilter}">
+                <ImageButton.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="{StaticResource White}"/>
+                </ImageButton.Behaviors>
+            </ImageButton>
         </HorizontalStackLayout>
 
         <Grid
@@ -87,29 +99,75 @@
                 RowDefinitions="*,1">
 
                 <Grid
+                    Padding="5,10,5,10"
                     Grid.Row="0"
                     ColumnDefinitions="*,*">
 
-                    <Button
-                        Text="{Binding FilterName}"
-                        Style="{StaticResource buttonFilter}"
-                        ImageSource="sort_down.png"
+                    <HorizontalStackLayout
+                        Spacing="2"
                         Grid.Column="0"
-                        ContentLayout="Right, 1"
-                        HorizontalOptions="Start"/>
+                        BackgroundColor="{StaticResource White}"
+                        HorizontalOptions="Start">
+                        <Label
+                            Text="{Binding Filter.Sorting, Converter={StaticResource sortingEnumToString}}"
+                            Style="{StaticResource labelSorting}"/>
+                        <Image 
+                            Style="{StaticResource imageSorting}">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="{StaticResource Gray}"/>
+                            </Image.Behaviors>
+                        </Image>
+                        <HorizontalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding DisplaySortingPopupCommand}"
+                                CommandParameter="{x:Reference SortingPopup}"
+                                NumberOfTapsRequired="1"/>
+                        </HorizontalStackLayout.GestureRecognizers>
+                    </HorizontalStackLayout>
 
-                    <Button
-                        Text="Цена: любая"
-                        Style="{StaticResource buttonFilter}"
-                        ImageSource="sort_down.png"
+                    <HorizontalStackLayout
+                        x:Name="PricePopup"
+                        Spacing="2"
                         Grid.Column="1"
-                        ContentLayout="Right, 1"
-                        HorizontalOptions="End"/>
+                        BackgroundColor="{StaticResource White}"
+                        HorizontalOptions="End">
+                        <Label
+                            Text="{Binding Price}"
+                            Style="{StaticResource labelSorting}"/>
+                        <Image 
+                            Style="{StaticResource imageSorting}">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="{StaticResource Gray}"/>
+                            </Image.Behaviors>
+                        </Image>
+                        <HorizontalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding DisplayCostPopupCommand}"
+                                CommandParameter="{x:Reference PricePopup}"
+                                NumberOfTapsRequired="1"/>
+                        </HorizontalStackLayout.GestureRecognizers>
+                    </HorizontalStackLayout>
+
                 </Grid>
 
-                <BoxView 
+                <Grid
                     Grid.Row="1"
-                    BackgroundColor="{StaticResource Silver}"/>
+                    ColumnDefinitions="*,1,*">
+                    
+                    <BoxView 
+                        x:Name="SortingPopup"
+                        Grid.Column="0"
+                        BackgroundColor="{StaticResource Silver}"/>
+
+                    <BoxView 
+                        Grid.Column="1"
+                        BackgroundColor="{StaticResource Silver}"/>
+
+                    <BoxView 
+                        Grid.Column="2"
+                        BackgroundColor="{StaticResource Silver}"/>
+
+                </Grid>
             </Grid>
 
             <Grid
@@ -117,24 +175,21 @@
                 Grid.Row="2">
 
                 <CollectionView 
+                    ItemsSource="{Binding Products}"
                     ItemsLayout="VerticalGrid, 3">
-                    <CollectionView.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>https://www.kamo-uniforma.ru/upload/iblock/7b6/eze5ne7ip7h41s2ckyvi5i87sff65jtl/Botinki_gornye_SHveytsariya_bu.jpg</x:String>
-                            <x:String>https://pc-1.ru/pic/big/183501.jpg</x:String>
-                            <x:String>https://www.saloncentr.ru/uploads/used_car/3234/images/gal_medium_ac_87280839074e45b9ceae5109274a8c88_1643065204.jpg</x:String>
-                        </x:Array>
-                    </CollectionView.ItemsSource>
                     <CollectionView.ItemTemplate>
-                        <DataTemplate>
+                        <DataTemplate x:DataType="dto:ProductDto">
                             <Border
                                 HeightRequest="110"
                                 WidthRequest="120"
                                 StrokeShape="RoundRectangle 5,5,5,5"
                                 Stroke="Transparent">
-                                <Image 
+                                <ImageButton 
                                     Aspect="AspectFill"  
-                                    Source="{Binding}"/>
+                                    Source="{Binding ImageUrl}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:HomeViewModel}},
+                                                      Path=ProductDetailAsyncCommand}"
+                                    CommandParameter="{Binding .}"/>
                             </Border>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>

@@ -52,7 +52,6 @@
         </Setter>
     </Style>
 
-
     <Style x:Key="radioButtonPickUp" TargetType="RadioButton">
         <Setter Property="VerticalOptions" Value="Center"/>
         <Setter Property="HorizontalOptions" Value="Center"/>
@@ -74,7 +73,7 @@
                                             <Setter
                                                 TargetName="PickUpImage"
                                                 Property="Image.Source"
-                                                Value="location_gold.png"/>
+                                                Value="location_gold.svg"/>
                                             <Setter
                                                 TargetName="Indicator"
                                                 Property="BoxView.Color"
@@ -91,7 +90,7 @@
                                             <Setter
                                                 TargetName="PickUpImage"
                                                 Property="Image.Source"
-                                                Value="location_silver.png"/>
+                                                Value="location.svg"/>
                                             <Setter
                                                 TargetName="Indicator"
                                                 Property="BoxView.Color"
@@ -103,8 +102,9 @@
                             </VisualStateGroupList>
                         </VisualStateManager.VisualStateGroups>
                         <HorizontalStackLayout
+                            Spacing="5"
                             HorizontalOptions="Center">
-                            <Image x:Name="PickUpImage" HeightRequest="20" WidthRequest="20" Source="location_silver.png"/>
+                            <Image x:Name="PickUpImage" HeightRequest="20" WidthRequest="20" Source="location.svg"/>
                             <Label x:Name="TextLabel" Text="{TemplateBinding Content}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="16" FontFamily="InterMedium"/>
                         </HorizontalStackLayout>
                         <BoxView x:Name="Indicator" Grid.Row="1" Color="{StaticResource Silver}"/>
@@ -113,5 +113,4 @@
             </Setter.Value>
         </Setter>
     </Style>
-
 </ResourceDictionary>

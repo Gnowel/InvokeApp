@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               xmlns:viewmodels="clr-namespace:InvokeApp.MAUI.ViewModels.Popups"
+               xmlns:popups="clr-namespace:InvokeApp.MAUI.Views.Popups"
+               xmlns:converter="clr-namespace:InvokeApp.MAUI.Converters"
+               x:Class="InvokeApp.MAUI.Views.Popups.SortingPopup"
+               x:DataType="viewmodels:SortingViewModel"
+               Color="Transparent">
+
+    <Border
+        Style="{StaticResource borderEntryPopup}"
+        WidthRequest="190"
+        HeightRequest="100">
+        <Border.Resources>
+            <converter:SortingEnumToStringConverters x:Key="sortingEnumToString" />
+        </Border.Resources>
+
+        <CollectionView
+            ItemsSource="{Binding FilterNames, Converter={StaticResource sortingEnumToString}}"
+            SelectedItem="{Binding SelectedSorting, Converter={StaticResource sortingEnumToString}}"
+            SelectionMode="Single"
+            BackgroundColor="{StaticResource White}"           
+            SelectionChangedCommand="{Binding CloseCommand}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid 
+                        Padding="5"
+                        ColumnDefinitions=" *, 25">
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroupList>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter
+                                            TargetName="TextLabel"
+                                            Property="Label.TextColor"
+                                            Value="{StaticResource Black}"/>
+                                            <Setter
+                                            TargetName="Indicator"
+                                            Property="Image.IsVisible"
+                                            Value="false"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter 
+                                            Property="BackgroundColor" 
+                                            Value="{StaticResource White}" />
+                                            <Setter
+                                            TargetName="TextLabel"
+                                            Property="Label.TextColor"
+                                            Value="{StaticResource Primary}"/>
+                                            <Setter
+                                            TargetName="Indicator"
+                                            Property="Image.IsVisible"
+                                            Value="true"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateGroupList>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Label 
+                            Text="{Binding .}"
+                            x:Name="TextLabel"
+                            FontSize="14"
+                            FontFamily="InterSemiBold"
+                            Grid.Column="0"/>   
+                        <Image
+                            x:Name="Indicator"
+                            Source="done.svg"
+                            Grid.Column="1"
+                            HeightRequest="25"/>
+
+                    </Grid>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Border>
+   
+</toolkit:Popup>

@@ -1,14 +1,149 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dtoD="clr-namespace:InvokeApp.Shared.DTOs.Deals;assembly=InvokeApp.Shared"
+             xmlns:dtoS="clr-namespace:InvokeApp.Shared.DTOs.Products;assembly=InvokeApp.Shared"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:viewmodels="clr-namespace:InvokeApp.MAUI.ViewModels"            
              x:Class="InvokeApp.MAUI.Views.DealsPage"
+             x:DataType="viewmodels:DealsViewModel"
              Shell.NavBarIsVisible="False"
-             Shell.TabBarIsVisible="True"
-             Title="DealsPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Shell.TabBarIsVisible="True">
+
+    <Grid
+        RowDefinitions="100, *"
+        BackgroundColor="{StaticResource White}">
+        
+        <Grid 
+            Grid.Row="0"
+            BackgroundColor="{StaticResource Primary}">
+            <Label
+                Text="Мои сделки"
+                Style="{StaticResource labelTitelPage}"/>
+        </Grid>
+
+        <Grid 
+            Grid.Row="1"
+            RowDefinitions="41,*">
+
+            <Grid
+                ColumnDefinitions="*, 1, *"                
+                RadioButtonGroup.GroupName="Filter">
+
+                <RadioButton
+                    Grid.Column="0"
+                    IsChecked="True"
+                    Content="Продажа"
+                    Value="False"
+                    Style="{StaticResource radioButtonAll}">
+                    <RadioButton.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SelectItemCommand}"/>
+                    </RadioButton.GestureRecognizers>
+                </RadioButton>
+
+                <BoxView 
+                    Grid.Column="1"
+                    WidthRequest="1"
+                    HeightRequest="20"
+                    BackgroundColor="{StaticResource Silver}"/>
+
+                <RadioButton
+                    Grid.Column="2"
+                    Content="Покупки"
+                    Value="True"
+                    Style="{StaticResource radioButtonAll}">
+                    <RadioButton.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SelectItemCommand}"/>
+                    </RadioButton.GestureRecognizers>
+                </RadioButton>
+            </Grid>
+
+            <Grid
+                IsVisible="{Binding IsSale}"
+                Grid.Row="1">
+                <CollectionView
+                     ItemsSource="{Binding SellingProducts}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="dtoS:ProductSellingDto">
+                            <Grid
+                                 Padding="0,10,0,0"
+                                 RowDefinitions="140, 1">           
+                                <Grid 
+                                     Padding="10"
+                                     ColumnDefinitions="110, *, 30">
+                                    <Border
+                                        StrokeShape="RoundRectangle 5"
+                                        StrokeThickness="0">
+                                        <Image
+                                             Grid.Column="0"
+                                             Aspect="AspectFill"
+                                             Source="{Binding ImageUrl}"/>      
+                                    </Border>
+                                    <VerticalStackLayout
+                                        Padding="10,0,0,0"
+                                        Spacing="3"
+                                        Grid.Column="1">
+                                        <Label
+                                             Text="{Binding Name}"
+                                             FontSize="15"
+                                             TextColor="{StaticResource Black}"
+                                             FontFamily="InterExtraBold"
+                                             LineBreakMode="CharacterWrap"/>
+                                        <Label 
+                                             Text="{Binding Price, StringFormat='{0:#,##,# ₽}'}"
+                                             TextColor="{StaticResource Black}"
+                                             FontFamily="InterRegular"
+                                             VerticalOptions="Start"/>
+                                        <Label 
+                                             Text="Продан"
+                                             IsVisible="{Binding Sold}"
+                                             TextColor="{StaticResource Primary}"
+                                             FontFamily="InterRegular"
+                                             VerticalOptions="Start"/>
+                                    </VerticalStackLayout>
+                                    <ImageButton
+                                         Source="arrow_right_short.svg"
+                                         Grid.Column="2"
+                                         WidthRequest="25"
+                                         HeightRequest="25"
+                                         VerticalOptions="Start"
+                                         HorizontalOptions="Start">
+                                        <ImageButton.Behaviors>
+                                            <toolkit:IconTintColorBehavior TintColor="{StaticResource Silver}"/>
+                                        </ImageButton.Behaviors>
+                                    </ImageButton>
+                                </Grid>
+                                <BoxView 
+                                     Grid.Row="1"
+                                     BackgroundColor="{StaticResource Silver}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+
+            <Grid
+                IsVisible="{Binding IsPurchases}"
+                Grid.Row="1">
+                <CollectionView
+                    ItemsSource="{Binding BuyingProducts}"
+                    ItemsLayout="VerticalGrid, 2">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="dtoD:BuyingDealDto">
+                            <Border
+                                Margin="10,10,10,0"
+                                StrokeShape="RoundRectangle 5,5,5,5"
+                                Stroke="Transparent">
+                                <Image
+                                    Grid.Column="0"
+                                    Aspect="AspectFill"
+                                    Source="{Binding ImageUrl}"/>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+
+        </Grid>
+    </Grid>
 </ContentPage>

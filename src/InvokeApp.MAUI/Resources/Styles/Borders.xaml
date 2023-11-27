@@ -6,8 +6,49 @@
     <Style x:Key="borderEntry" TargetType="Border">
         <Setter Property="Stroke" Value="{StaticResource Black}"/>
         <Setter Property="Background" Value="{StaticResource White}"/>
-        <Setter Property="StrokeShape" Value="RoundRectangle 10,10,10,10"/>
+        <Setter Property="StrokeShape" Value="RoundRectangle 10"/>
         <Setter Property="StrokeThickness" Value="1"/>
+    </Style>
+
+    <Style x:Key="borderEntryProduct" TargetType="Border">
+        <Setter Property="Stroke" Value="{StaticResource Silver}"/>
+        <Setter Property="Background" Value="{StaticResource White}"/>
+        <Setter Property="StrokeShape" Value="RoundRectangle 5"/>
+        <Setter Property="StrokeThickness" Value="1"/>
+    </Style>
+
+    <Style x:Key="borderPopup" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource White}"/>
+        <Setter Property="StrokeShape" Value="RoundRectangle 5"/>
+        <Setter Property="StrokeThickness" Value="1"/>
+    </Style>
+    
+    <Style x:Key="borderEntryPopup" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource White}"/>
+        <Setter Property="StrokeShape" Value="RoundRectangle 5"/>
+        <Setter Property="Stroke" Value="{StaticResource Gray45}"/>
+        <Setter Property="StrokeThickness" Value="1"/>
+    </Style>
+
+    <Style x:Key="borderlCurrentProgress" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource Primary}"/>
+        <Setter Property="StrokeShape" Value="RoundRectangle 30"/>
+        <Setter Property="WidthRequest" Value="50"/>
+        <Setter Property="HeightRequest" Value="50"/>
+    </Style>
+
+    <Style x:Key="borderlNextProgress" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource VeryLightGray}"/>
+        <Setter Property="StrokeShape" Value="RoundRectangle 30"/>
+        <Setter Property="WidthRequest" Value="50"/>
+        <Setter Property="HeightRequest" Value="50"/>
+    </Style>
+
+    <Style x:Key="borderlSmallCircle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource VeryLightGray}"/>
+        <Setter Property="StrokeShape" Value="RoundRectangle 30"/>
+        <Setter Property="WidthRequest" Value="8"/>
+        <Setter Property="HeightRequest" Value="8"/>
     </Style>
 
 </ResourceDictionary>

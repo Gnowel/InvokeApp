@@ -4,17 +4,25 @@
              x:Class="InvokeApp.MAUI.Resources.Styles.ImageButtons">
 
     <Style x:Key="baseImageButton" TargetType="ImageButton">
-        <Setter Property="WidthRequest" Value="35"/>
-        <Setter Property="HeightRequest" Value="35"/>
+        <Setter Property="WidthRequest" Value="30"/>
+        <Setter Property="HeightRequest" Value="30"/>
     </Style>
 
-    <Style x:Key="imageButtonBack" TargetType="ImageButton" BasedOn="{StaticResource baseImageButton}">
+    <Style x:Key="imageButtonBackLong" TargetType="ImageButton" BasedOn="{StaticResource baseImageButton}">
         <Setter Property="HorizontalOptions" Value="Start"/>
+        <Setter Property="Source" Value="arrow_back_long.svg"/>
     </Style>
 
     <Style x:Key="imageButtonFilter" TargetType="ImageButton">
         <Setter Property="HeightRequest" Value="32"/>
         <Setter Property="WidthRequest" Value="32"/>
     </Style>
+
+    <Style x:Key="imageButtonBackShort" TargetType="ImageButton">
+        <Setter Property="Rotation" Value="180"/>
+        <Setter Property="Source" Value="arrow_right_short.svg"/>
+        <Setter Property="HorizontalOptions" Value="Start"/>
+    </Style>
+    
 
 </ResourceDictionary>

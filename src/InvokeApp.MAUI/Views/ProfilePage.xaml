@@ -5,10 +5,14 @@
              Shell.NavBarIsVisible="False"
              Shell.TabBarIsVisible="True"
              Title="ProfilePage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <Grid
+        BackgroundColor="{StaticResource White}">
+        <Label
+                Text="Пока не реализовано"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                FontSize="36"
+                TextColor="{StaticResource Black}"/>
+    </Grid>
 </ContentPage>

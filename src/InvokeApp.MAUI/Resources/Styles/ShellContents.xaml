@@ -6,7 +6,7 @@
     <Style TargetType="ShellContent">
         <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource Primary}"/>
         <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource White}"/>
-        <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource Black}"/>
+        <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource Silver}"/>
     </Style>
     
 </ResourceDictionary>

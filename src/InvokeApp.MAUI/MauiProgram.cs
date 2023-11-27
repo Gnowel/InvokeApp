@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using InvokeApp.MAUI.Extensions;
+using InvokeApp.MAUI.Handlers;
 
 namespace InvokeApp.MAUI
 {
@@ -16,6 +17,7 @@ namespace InvokeApp.MAUI
                 .RegisterViewModels()
                 .RegisterViews();
 
+            FormHandler.RemoveBorders();
 
             return builder.Build();
         }

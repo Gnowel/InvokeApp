@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:viewmodels="clr-namespace:InvokeApp.MAUI.ViewModels.Announcements"  
+             x:Class="InvokeApp.MAUI.Views.Announcements.SpecifyPricePage"
+             x:DataType="viewmodels:SpecifyPriceViewModel"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="False">
+
+    <Grid
+        RowDefinitions="100, *"
+        BackgroundColor="{StaticResource White}">
+
+        <Grid 
+            Grid.Row="0"
+            ColumnDefinitions="20,*"
+            BackgroundColor="{StaticResource Primary}">
+            <ImageButton 
+                Style="{StaticResource imageButtonBackShort}"
+                Margin="10,0,0,10"
+                Command="{Binding BackAsyncCommand}"
+                Grid.Column="0"
+                WidthRequest="22"
+                HeightRequest="22"
+                VerticalOptions="End">
+                <ImageButton.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="{StaticResource White}"/>
+                </ImageButton.Behaviors>
+            </ImageButton>
+            <Label
+                Grid.Column="1"
+                Text="Укажите цену"
+                Style="{StaticResource labelTitelPage}"/>
+        </Grid>
+
+        <Grid 
+            Grid.Row="1"
+            Padding="0,30,0,0"
+            RowDefinitions="*, 1, 160">
+
+            <Border
+                Style="{StaticResource borderEntryProduct}"
+                WidthRequest="270"
+                HeightRequest="70"
+                VerticalOptions="Start"
+                HorizontalOptions="Center">
+                <Entry
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Text="{Binding Price}"
+                    TextColor="{StaticResource Black}"
+                    PlaceholderColor="{StaticResource Silver}"
+                    Keyboard="Numeric"
+                    FontFamily="InterRegular"
+                    FontSize="30"
+                    Placeholder="0 ₽"/>
+            </Border>
+
+            <BoxView
+                Grid.Row="1"
+                HeightRequest="1"
+                BackgroundColor="{StaticResource Silver}"/>
+
+            <Grid 
+                Grid.Row="2"
+                RowDefinitions="*,*">
+
+                <Button
+                    Text="Дальше"
+                    Style="{StaticResource buttonAnnouncementProduct}"
+                    Command="{Binding SelectLocationAsyncCommand}"
+                    Grid.Row="0"/>
+
+
+                <Grid 
+                    Padding="20,0,20,0"
+                    Grid.Row="1">
+                    <HorizontalStackLayout Spacing="10">
+                        <VerticalStackLayout>
+                            <Border Style="{StaticResource borderlNextProgress}">
+                                <Image Style="{StaticResource imageProductDone}">
+                                    <Image.Behaviors>
+                                        <toolkit:IconTintColorBehavior TintColor="{StaticResource White}"/>
+                                    </Image.Behaviors>
+                                </Image>
+                            </Border>
+                            <Label 
+                            Text="Фотография"
+                            Style="{StaticResource labelNextProgress}"/>
+                        </VerticalStackLayout>
+                        <HorizontalStackLayout 
+                        VerticalOptions="Center"
+                        Margin="0,0,0,30">
+                            <Border Style="{StaticResource borderlSmallCircle}"/>
+                            <Border Style="{StaticResource borderlSmallCircle}"/>
+                            <Border Style="{StaticResource borderlSmallCircle}"/>
+                        </HorizontalStackLayout>
+
+                        <VerticalStackLayout>
+                            <Border Style="{StaticResource borderlNextProgress}">
+                                <Image Style="{StaticResource imageProductDone}">
+                                    <Image.Behaviors>
+                                        <toolkit:IconTintColorBehavior TintColor="{StaticResource White}"/>
+                                    </Image.Behaviors>
+                                </Image>
+                            </Border>
+                            <Label 
+                                Text="Детали"
+                                Style="{StaticResource labelNextProgress}"/>
+                        </VerticalStackLayout>
+                        <HorizontalStackLayout 
+                            VerticalOptions="Center"
+                            Margin="0,0,0,30">
+                            <Border Style="{StaticResource borderlSmallCircle}"/>
+                            <Border Style="{StaticResource borderlSmallCircle}"/>
+                            <Border Style="{StaticResource borderlSmallCircle}"/>
+                        </HorizontalStackLayout>
+
+                        <VerticalStackLayout>
+                            <Border Style="{StaticResource borderlCurrentProgress}">
+                                <Label
+                                    Text="3"
+                                    Style="{StaticResource labelCurrentProgressInCircle}"/>
+                            </Border>
+                            <Label 
+                                Text="Цена"
+                                Style="{StaticResource labelCurrentProgress}"/>
+                        </VerticalStackLayout>
+                        <HorizontalStackLayout 
+                            VerticalOptions="Center"
+                            Margin="0,0,0,30">
+                            <Border Style="{StaticResource borderlSmallCircle}"/>
+                            <Border Style="{StaticResource borderlSmallCircle}"/>
+                            <Border Style="{StaticResource borderlSmallCircle}"/>
+                        </HorizontalStackLayout>
+
+                        <VerticalStackLayout>
+                            <Border Style="{StaticResource borderlNextProgress}">
+                                <Label
+                                    Text="4"
+                                    Style="{StaticResource labelCurrentProgressInCircle}"/>
+                            </Border>
+                            <Label 
+                                Text="Локация"
+                                Style="{StaticResource labelNextProgress}"/>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</ContentPage>

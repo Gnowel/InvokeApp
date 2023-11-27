@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InvokeApp.MAUI.Resources.Styles.Images">
+
+    <Style x:Key="imageSorting" TargetType="Image">
+        <Setter Property="HeightRequest" Value="12"/>
+        <Setter Property="WidthRequest" Value="12"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="Source" Value="sort_down.svg"/>
+    </Style>
+
+    <Style x:Key="imageProductDone" TargetType="Image">
+        <Setter Property="HeightRequest" Value="30"/>
+        <Setter Property="WidthRequest" Value="30"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="Source" Value="done.svg"/>
+    </Style>
+
+</ResourceDictionary>

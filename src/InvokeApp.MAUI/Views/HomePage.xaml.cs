@@ -10,4 +10,15 @@ public partial class HomePage : ContentPage
 
 		InitializeComponent();
 	}
+
+    protected override async void OnAppearing()
+    {
+		await (BindingContext as HomeViewModel)?.Initialize();
+        base.OnAppearing();
+    }
+
+	protected override void OnDisappearing()
+	{
+		base.OnDisappearing();
+	}
 }

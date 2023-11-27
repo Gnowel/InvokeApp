@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:view="clr-namespace:InvokeApp.MAUI.Views"
+    xmlns:viewA="clr-namespace:InvokeApp.MAUI.Views.Announcements"
     Shell.FlyoutBehavior="Disabled">
 
     <ShellItem Route="MainPage">
@@ -17,11 +18,11 @@
             Icon="home.svg"
             ContentTemplate="{DataTemplate view:HomePage}"/>
         <ShellContent 
-            Icon="favourite.svg"
-            ContentTemplate="{DataTemplate view:FavouritePage}"/>
+            Icon="favorite.svg"
+            ContentTemplate="{DataTemplate view:FavoritePage}"/>
         <ShellContent 
-            Icon="photo.svg"
-            ContentTemplate="{DataTemplate view:PostPage}"/>
+            Icon="camera.svg"
+            ContentTemplate="{DataTemplate viewA:PlaceProductPage}"/>
         <ShellContent 
             Icon="tag.svg"
             ContentTemplate="{DataTemplate view:DealsPage}"/>
