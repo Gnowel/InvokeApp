@@ -7,7 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5A5C926A-DF8
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvokeApp.MAUI", "src\InvokeApp.MAUI\InvokeApp.MAUI.csproj", "{7343A088-3C29-4913-A2F2-2BDFCCF9FC20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvokeApp.Shared", "src\InvokeApp.Shared\InvokeApp.Shared.csproj", "{3376F2EB-2C19-492A-8539-D35824889DC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvokeApp.Shared", "src\InvokeApp.Shared\InvokeApp.Shared.csproj", "{3376F2EB-2C19-492A-8539-D35824889DC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvokeApp.WebAPI", "src\InvokeApp.WebAPI\InvokeApp.WebAPI.csproj", "{F715CB50-C39F-4934-842B-D4EAFF511843}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvokeApp.Core", "src\InvokeApp.Core\InvokeApp.Core.csproj", "{977E860C-4AE9-4636-BB5A-2598E6DEF69C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvokeApp.Infrastructure", "src\InvokeApp.Infrastructure\InvokeApp.Infrastructure.csproj", "{CBF86C97-B4E1-423F-9F78-934026BB9919}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +31,18 @@ Global
 		{3376F2EB-2C19-492A-8539-D35824889DC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3376F2EB-2C19-492A-8539-D35824889DC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3376F2EB-2C19-492A-8539-D35824889DC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F715CB50-C39F-4934-842B-D4EAFF511843}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F715CB50-C39F-4934-842B-D4EAFF511843}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F715CB50-C39F-4934-842B-D4EAFF511843}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F715CB50-C39F-4934-842B-D4EAFF511843}.Release|Any CPU.Build.0 = Release|Any CPU
+		{977E860C-4AE9-4636-BB5A-2598E6DEF69C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{977E860C-4AE9-4636-BB5A-2598E6DEF69C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{977E860C-4AE9-4636-BB5A-2598E6DEF69C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{977E860C-4AE9-4636-BB5A-2598E6DEF69C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBF86C97-B4E1-423F-9F78-934026BB9919}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBF86C97-B4E1-423F-9F78-934026BB9919}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBF86C97-B4E1-423F-9F78-934026BB9919}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBF86C97-B4E1-423F-9F78-934026BB9919}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +50,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{7343A088-3C29-4913-A2F2-2BDFCCF9FC20} = {5A5C926A-DF81-4C5A-861D-425458557ADC}
 		{3376F2EB-2C19-492A-8539-D35824889DC9} = {5A5C926A-DF81-4C5A-861D-425458557ADC}
+		{F715CB50-C39F-4934-842B-D4EAFF511843} = {5A5C926A-DF81-4C5A-861D-425458557ADC}
+		{977E860C-4AE9-4636-BB5A-2598E6DEF69C} = {5A5C926A-DF81-4C5A-861D-425458557ADC}
+		{CBF86C97-B4E1-423F-9F78-934026BB9919} = {5A5C926A-DF81-4C5A-861D-425458557ADC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9FA21600-F5FD-4145-B2ED-BE560B875501}

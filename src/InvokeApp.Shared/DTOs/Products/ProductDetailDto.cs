@@ -9,7 +9,7 @@
         public string Description { get; set; }
         public int Price { get; set; }
         public bool Sold { get; set; }
-        public Guid SellerId { get; set; }
+        public int SellerId { get; set; }
         public string SellerName {  get; set; }
         public string SellerImageUrl {  get; set; }
     }

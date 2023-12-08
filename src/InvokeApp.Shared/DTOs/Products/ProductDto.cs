@@ -2,8 +2,7 @@
 {
     public class ProductDto
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string ImageUrl { get; set; }
-        //public Guid SellerId { get; set; }
     }
 }
